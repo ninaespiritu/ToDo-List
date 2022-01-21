@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
+import { FormTodo } from "./components/FormTodo";
+import { Todo } from "./components/Todo";
 
 // =============== APP =============== //
 
 function App() {
 	const [todos, setTodos] = useState([
 		{
-			text: "This is a sample todo",
+			text: "This is a sample task",
 			isDone: false,
 		},
 	]);
@@ -34,7 +36,7 @@ function App() {
 	return (
 		<div className="app">
 			<div>
-				<h1>Todo List</h1>
+				<h1>To-Do List</h1>
 
 				<FormTodo addTodo={addTodo} />
 
@@ -57,50 +59,5 @@ function App() {
 		</div>
 	);
 }
-
-// ========== TODO COMPONENT ========== //
-
-const Todo = ({ todo, index, checkTodo, deleteTodo }) => {
-	return (
-		<div className="todo">
-			<span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>
-				{todo.text}
-			</span>
-
-			<div>
-				<button onClick={() => checkTodo(index)}>✓</button>{" "}
-				<button onClick={() => deleteTodo(index)}>✕</button>
-			</div>
-		</div>
-	);
-};
-
-// ========== FORM TODO COMPONENT ========== //
-
-const FormTodo = ({ addTodo }) => {
-	const [value, setValue] = useState("");
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (!value) return;
-		addTodo(value);
-		setValue("");
-	};
-
-	return (
-		<form onSubmit={handleSubmit}>
-			<div>
-				<label>Add Todo</label>
-				<input
-					type="text"
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
-					placeholder="Add new todo"
-				/>
-			</div>
-			<button type="submit">Submit</button>
-		</form>
-	);
-};
 
 export default App;
