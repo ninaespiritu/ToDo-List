@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Components.css";
 
 // ========== FORM TODO COMPONENT ========== //
 
@@ -15,15 +16,15 @@ export const FormTodo = ({ addTodo }) => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Add Task</h2>
       <div>
-        <label>Add To-Do</label>
         <input
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Add a new task" />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" id="form-button">Submit</button>
     </form>
   );
 };

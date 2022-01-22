@@ -35,14 +35,16 @@ function App() {
 
 	return (
 		<div className="app">
-			<div>
-				<h1>To-Do List</h1>
+			<div className="app-content">
+				<div className="form">
+					<FormTodo addTodo={addTodo} />
+				</div>
 
-				<FormTodo addTodo={addTodo} />
+				<div className="todo-list">
+					<h2>To-Do List</h2>
 
-				<div>
-					{todos.map((todo, index) => (
-						<div>
+					<div className="todo-scroll">
+						{todos.map((todo, index) => (
 							<div>
 								<Todo
 									key={index}
@@ -52,8 +54,9 @@ function App() {
 									deleteTodo={deleteTodo}
 								/>
 							</div>
-						</div>
-					))}
+						))}
+					</div>
+					
 				</div>
 			</div>
 		</div>
