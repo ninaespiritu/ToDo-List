@@ -16,7 +16,6 @@ export const FormTodo = ({ addTodo }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Task</h2>
       <div>
         <input
           type="text"

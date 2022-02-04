@@ -37,6 +37,7 @@ function App() {
 		<div className="app">
 			<div className="app-content">
 				<div className="form">
+				<h2>Add Task</h2>
 					<FormTodo addTodo={addTodo} />
 				</div>
 
